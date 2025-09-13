@@ -1,0 +1,26 @@
+{
+  "name": "dramabox",
+  "version": "1.0.0",
+  "description": "Unofficial Dramabox API helper to generate token, deviceId, and send requests easily.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node example.js"
+  },
+  "keywords": [
+    "dramabox",
+    "api",
+    "token",
+    "scraper",
+    "helper",
+    "vercel"
+  ],
+  "author": {
+    "name": "Gugun09",
+    "url": "https://github.com/Gugun09"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.12.1"
+  }
+}
