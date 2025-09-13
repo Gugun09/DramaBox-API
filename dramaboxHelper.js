@@ -28,21 +28,20 @@ export const getHeaders = async () => {
     const { token, deviceId } = await getToken();
 
     return {
-        "User-Agent": "okhttp/4.10.0",
-        "Accept-Encoding": "gzip",
-        "Content-Type": "application/json",
-        "tn": `Bearer ${token}`,
-        "version": "430",
-        "vn": "4.3.0",
-        "cid": "DRA1000042",
-        "package-name": "com.storymatrix.drama",
-        "apn": "1",
-        "device-id": deviceId,
-        "language": "in",
-        "current-language": "in",
-        "p": "43",
-        "time-zone": "+0800",
-        "content-type": "application/json; charset=UTF-8"
+        'Host': 'sapi.dramaboxdb.com',
+        'Tn': `Bearer ${token}`,
+        'Version': '300',
+        'Vn': '3.0.0',
+        'Cid': 'DRA1000042',
+        'Package-Name': 'com.storymatrix.drama',
+        'Apn': '1',
+        'Device-Id': `${deviceId}`,
+        'Language': 'in',
+        'Current-Language': 'in',
+        'P': '43',
+        'Time-Zone': '+0800',
+        'Content-Type': 'application/json; charset=UTF-8',
+        'User-Agent': 'okhttp/4.10.0'
     };
 };
 
