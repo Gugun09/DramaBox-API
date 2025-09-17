@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getHeaders } from "./dramaboxHelper.js";
+import { getHeaders } from "./api/dramaboxHelper.js";
 
 /**
  * 1️⃣ Ambil daftar drama (theater)
