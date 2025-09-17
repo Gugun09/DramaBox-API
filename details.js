@@ -1,4 +1,4 @@
-import { getDramaDetail, batchDownload } from "./api/details";
+import { getDramaDetail, batchDownload } from "./api/details.js";
 
 async function main() {
   const bookId = "41000121148";
