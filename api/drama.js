@@ -30,16 +30,30 @@ export const getRecommendedBooks = async (log = true) => {
     const data = await apiRequest("/drama-box/he001/recommendBook", {
         isNeedRank: 1,
         specialColumnId: 0,
-        pageNo: 1
+        pageNo: 2
     });
 
-    const list = data?.data?.recommendList?.records || [];
+    const rawList = data?.data?.recommendList?.records || [];
+
+    // 🔥 Flatten: kalau cardType = 3 (tagCardVo), ambil tagBooks-nya
+    const list = rawList.flatMap(item => {
+        if (item.cardType === 3 && item.tagCardVo?.tagBooks) {
+            return item.tagCardVo.tagBooks;
+        }
+        return [item];
+    });
+
+    // 🧹 Hapus duplikat berdasarkan bookId
+    const uniqueList = list.filter(
+        (v, i, arr) => arr.findIndex(b => b.bookId === v.bookId) === i
+    );
+
     if (log) {
         console.log("\n=== ⭐ REKOMENDASI DRAMA ===");
-        list.forEach((book, i) => {
+        uniqueList.forEach((book, i) => {
             console.log(`${i + 1}. ${book.bookName} (ID: ${book.bookId})`);
         });
     }
 
-    return list;
+    return uniqueList;
 };

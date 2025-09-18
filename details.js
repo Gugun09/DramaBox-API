@@ -1,7 +1,7 @@
 import { getDramaDetail, batchDownload } from "./api/details.js";
 
 async function main() {
-  const bookId = "41000121148";
+  const bookId = "41000116351";
 
   // 1. ambil detail untuk dapatkan daftar ID
   const detail = await getDramaDetail(bookId);
